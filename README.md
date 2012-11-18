@@ -11,20 +11,33 @@ Minimee is (currently) written as a Twig [filter](http://twig.sensiolabs.org/doc
 ### CSS:
 
 	{% filter minimee('css') %}
-		<link rel="stylesheet" href="/assets/css/bootstrap.css">
-		<link rel="stylesheet" href="/assets/css/responsive.css">
+		<link rel="stylesheet" href="/css/bootstrap.css">
+		<link rel="stylesheet" href="/css/responsive.css">
 	{% endfilter %}
 
-	{# example of how to pass options to minimee filter #}
+	{# Passing options as 2nd parameter #}
 	{% filter minimee('css', {'combine' : 'no'}) %}
-		<link rel="stylesheet" href="/assets/css/bootstrap.css">
-		<link rel="stylesheet" href="/assets/css/responsive.css">
+		<link rel="stylesheet" href="/css/bootstrap.css">
+		<link rel="stylesheet" href="/css/responsive.css">
 	{% endfilter %}
+	
+	{# Alternate syntax #}
+	{{ '<link rel="stylesheet" href="/css/override.css" />' | minimee('css') }}
 
 ### JS:
 
 	{% filter minimee('js') %}
-		<script src="/assets/js/vendor.min.js" type="text/javascript"></script>
-		<script src="/assets/js/main.js" type="text/javascript"></script>
+		<script src="/js/vendor.min.js" type="text/javascript"></script>
+		<script src="/js/main.js" type="text/javascript"></script>
 	{% endfilter %}
+
+	{# Passing options as 2nd parameter #}
+	{% filter minimee('js', {'combine' : 'no'}) %}
+		<script src="/js/vendor.min.js" type="text/javascript"></script>
+		<script src="/js/main.js" type="text/javascript"></script>
+	{% endfilter %}
+	
+	{# Alternate syntax #}
+	{{ '<script src="/js/plugin.js" type="text/javascript"></script>' | minimee('js') }}
+
 	
